@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ভালোবাসার ক্যালকুলেটর</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: red;
+        }
+        h3 {
+            text-align: center;
+            color: lime;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #357ABD;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #percentage {
+            font-size: 24px;
+            color: #4A90E2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ভালোবাসার সাইকোলজিক্যাল ক্যালকুলেটর</h1>
+        <h3>আপনার বিবেচনা অনুযায়ী ১ হতে ১০ সংখ্যার মাঝে ইন্ডিকেশান করুন</h3>
+        <form id="loveForm">
+            <label for="point1">বারবার দেখতে ভালোবাসার মানুষটিকে দেখতে ইচ্ছে করে:</label>
+            <input type="number" id="point1" min="0" max="10" required><br>
+
+            <label for="point2">মুখচ্ছবির ওপর মায়া লাগে:</label>
+            <input type="number" id="point2" min="0" max="10" required><br>
+
+            <label for="point3">পরিপূর্ণ বিশ্বাস রাখে:</label>
+            <input type="number" id="point3" min="0" max="10" required><br>
+
+            <label for="point4">ভালোবাসার মানুষ রাগ করলে মন খারাপ হয়:</label>
+            <input type="number" id="point4" min="0" max="10" required><br>
+
+            <label for="point5">ভালোবাসার মানুষ মন খারাপ করলে কষ্ট হয়:</label>
+            <input type="number" id="point5" min="0" max="10" required><br>
+
+            <label for="point6">ভালোবাসার মানুষ হারিয়ে যাবার ভয় মনে পূর্ণ থাকে:</label>
+            <input type="number" id="point6" min="0" max="10" required><br>
+
+            <label for="point7">ভালোবাসার মানুষটিকে স্বপ্নে দেখেন:</label>
+            <input type="number" id="point7" min="0" max="10" required><br>
+
+            <button type="button" onclick="calculateLove()">ক্যালকুলেট করুন</button>
+        </form>
+
+        <div id="result" class="result">
+            <p id="percentage">ভালোবাসার পরিমাণ: </p>
+        </div>
+    </div>
+
+    <script>
+        function calculateLove() {
+            // Get values from form
+            const point1 = parseInt(document.getElementById('point1').value);
+            const point2 = parseInt(document.getElementById('point2').value);
+            const point3 = parseInt(document.getElementById('point3').value);
+            const point4 = parseInt(document.getElementById('point4').value);
+            const point5 = parseInt(document.getElementById('point5').value);
+            const point6 = parseInt(document.getElementById('point6').value);
+            const point7 = parseInt(document.getElementById('point7').value);
+
+            // Calculate total points
+            const totalPoints = point1 + point2 + point3 + point4 + point5 + point6 + point7;
+            
+            // Maximum possible score
+            const maxPoints = 70; // 7 questions, each with max score of 10
+
+            // Calculate percentage
+            const lovePercentage = (totalPoints / maxPoints) * 100;
+
+            // Display result
+            document.getElementById('percentage').innerText = `ভালোবাসার পরিমাণ: ${lovePercentage.toFixed(2)}%`;
+        }
+    </script>
+</body>
+</html>
